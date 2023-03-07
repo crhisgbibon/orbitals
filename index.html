@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/orbitals/assets/favicon-82fbd818.ico">
+    
+    <title>Boids</title>
+    <script type="module" crossorigin src="/orbitals/assets/index-004b6441.js"></script>
+    <link rel="stylesheet" href="/orbitals/assets/index-dbbb383c.css">
+  </head>
+  <body class='min-h-screen max-h-screen'>
+
+    <div class="flex flex-row justify-center items-center border-b border-black">
+      <div class="flex w-full max-w-7xl h-full flex-row justify-center mx-auto sm:px-6 lg:px-8" style="height:calc(var(--vh) * 7.5)">
+        <button id="startButton" class="flex justify-center items-center mx-2 active:scale-95">
+          <img id="playPauseButton" class="w-3/4 h-3/4" src="/orbitals/play.svg">
+        </button>
+        <button id="viewButton" class="flex justify-center items-center mx-2 active:scale-95">
+          <img class="w-3/4 h-3/4" src="/orbitals/eye.svg">
+        </button>
+        <button id="resetButton" class="flex justify-center items-center mx-2 active:scale-95">
+          <img class="w-3/4 h-3/4" src="/orbitals/undo.svg">
+        </button>
+        <button id="nextButton" class="flex justify-center items-center mx-2 active:scale-95">
+          <img class="w-3/4 h-3/4" src="/orbitals/playNext.svg">
+        </button>
+        <button id="optionsButton" class="flex justify-center items-center mx-2 active:scale-95">
+          <img class="w-3/4 h-3/4" src="/orbitals/options.svg">
+        </button>
+      </div>
+    </div>
+  
+    <div id="settingsMenu" class="fixed z-10 bg-white flex flex-col justify-start content-start items-center w-full overflow-y-auto" style="display:none;height:calc(var(--vh) * 85);opacity:90%">
+
+      <div class="m-2 flex flex-col justify-center items-center">
+        <label for="schemaSelect" class="m-2">Schema:</label>
+        <select id="schemaSelect">
+          <option value=1>2 Body System</option>
+          <option value=2>2 Body with Sun, sync</option>
+          <option value=3>2 Body with Sun, async</option>
+          <option value=4>2 Body with Sun, alternating</option>
+          <option value=5>4 Body System, sync</option>
+          <option value=6>4 Body System, async</option>
+          <option value=7 selected>5 Body System, async</option>
+        </select>
+      </div>
+  
+      <div class="m-2 flex flex-col justify-center items-center">
+        <label for="checkDirection" class="m-2">Show Direction:</label>
+        <input type="checkbox" id="checkDirection" class="m-2" checked> 
+      </div>
+  
+      <div class="m-2 flex flex-col justify-center items-center">
+        <label for="checkInfo" class="m-2">Show Info:</label>
+        <input type="checkbox" id="checkInfo" class="m-2" checked> 
+      </div>
+  
+      <div id="generate" class="m-2">
+        <x-primary-button id="generateButton" class="w-24 h-12 mx-auto m-4 active:scale-95">Generate</x-primary-button>
+      </div>
+      
+    </div>
+
+    <div id="gameContainer" class="fixed w-full flex justify-center items-center" style="min-height:calc(var(--vh) * 85)">
+      <div id="gameDiv" class="flex justify-center items-center" style="min-height:calc(var(--vh) * 85)">
+        <canvas id="gameCanvas"></canvas>
+      </div>
+    </div>
+
+  </body>
+  
+</html>
